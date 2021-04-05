@@ -1,0 +1,32 @@
+{
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"parser": "babel-eslint",
+	"env": {
+		"node": true
+	},
+	"extends": [
+		"standard",
+		"prettier",
+		"prettier/standard",
+		"plugin:jest/recommended"
+	],
+	"plugins": ["prettier", "jest"],
+	"rules": {
+		"promise/catch-or-return": "error",
+		"prettier/prettier": [
+			"error",
+			{
+				"semi": true,
+				"singleQuote": true,
+				"tabWidth": 2,
+				"trailingComma": "es5",
+				"useTabs": true,
+				"quoteProps": "consistent",
+				"bracketSpacing": true,
+				"arrowParens": "always"
+			}
+		]
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"name": "ecommerce",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "icharles2 <iacharles257@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "babel backend --out-dir dist",
+		"restart": "rimraf dist && yarn build && yarn start",
+		"start": "node dist/index.js",
+		"dev": "nodemon --exec yarn restart"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"pg": "^8.5.1",
+		"pg-hstore": "^2.3.3",
+		"sequelize": "^6.6.2",
+		"sequelize-cli": "^6.2.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.13.14",
+		"@babel/core": "^7.13.14",
+		"@babel/plugin-proposal-class-properties": "^7.13.0",
+		"@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+		"@babel/preset-env": "^7.13.12",
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.6.3",
+		"concurrently": "^6.0.0",
+		"eslint": "^7.23.0",
+		"eslint-config-prettier": "^8.1.0",
+		"eslint-config-standard": "^16.0.2",
+		"eslint-friendly-formatter": "^4.0.1",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.3.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.3.1",
+		"eslint-plugin-promise": "^4.3.1",
+		"eslint-plugin-standard": "^5.0.0",
+		"nodemon": "^2.0.7",
+		"prettier": "^2.2.1",
+		"rimraf": "^3.0.2"
+	}
+}
