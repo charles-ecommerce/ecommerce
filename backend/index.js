@@ -2,26 +2,32 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import products from './data/products';
+import { connectDB } from './database/db';
 dotenv.config();
-
-const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const start = async function start() {
+	connectDB();
+	const app = express();
 
-app.get('/', (_, res) => {
-	res.json('Api is running');
-});
+	app.use(cors());
 
-app.get('/api/products', (_, res) => {
-	res.json(products);
-});
+	app.get('/', (_, res) => {
+		res.json('Api is running');
+	});
 
-app.get('/api/products/:id', (req, res) => {
-	const product = products.find((p) => p._id === req.params.id);
-	res.json(product);
-});
+	app.get('/api/products', (_, res) => {
+		res.json(products);
+	});
 
-app.listen(PORT, () => {
-	console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`);
-});
+	app.get('/api/products/:id', (req, res) => {
+		const product = products.find((p) => p._id === req.params.id);
+		res.json(product);
+	});
+
+	app.listen(PORT, () => {
+		console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`);
+	});
+};
+
+start();
